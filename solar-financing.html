@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<style>
+  .hero {
+    position: relative; /* Make it a positioned container */
+    background-image: url(./images/hero-image.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Light black overlay */
+    z-index: 1; /* Places the overlay below the content */
+  }
+
+  .content {
+    position: relative; /* Ensures the content stays above the overlay */
+    z-index: 2; /* Higher z-index to appear above the overlay */
+    text-align: center;
+  }
+
+  .orange-border {
+    position: relative;
+    display: inline-block; 
+  }
+
+  .orange-border::after {
+    content: '';
+    position: absolute;
+    bottom: 0; 
+    left: 0%; 
+    width: 50%; 
+    height: 4px; 
+    background-color: rgb(110, 8, 8); 
+  }
+
+  .top-border {
+    position: relative;
+    display: inline-block; 
+  }
+
+  .top-border::before {
+    content: '';
+    position: absolute;
+    top: 17%; 
+    left: 15%; 
+    width: 40%; 
+    height: 4px; 
+    background-color: white; 
+  }
+  .bottom-border {
+    position: relative;
+    display: inline-block; 
+  }
+
+  .bottom-border::before {
+    content: '';
+    position: absolute;
+    bottom: 0%; 
+    left: 30%; 
+    width: 40%; 
+    height: 4px; 
+    background-color: rgb(110, 8, 8); 
+  }
+</style>
+
+<body>
+      <!-- Navbar -->
+  <nav class="bg-red-800 text-white  py-2 px-5 md:px-10">
+    <!-- Top Bar -->
+    <div class="text-base font-thin py-2 px-5 md:px-10">
+      <div class="container mx-auto flex justify-center gap-2 md:gap-4 items-center ">
+        <div class="flex space-x-8">
+          <div class="flex flex-col md:flex-row items-center space-x-2">
+            <i class="fa-solid fa-phone"></i>
+            <span>UAN: +92 310 4400 999</span>
+          </div>
+          <div class="flex flex-col md:flex-row items-center space-x-2">
+            <i class="fa-solid fa-phone"></i>
+            <span>Trading Projects: +92 310 6220 891</span>
+          </div>
+          <div class="flex flex-col md:flex-row items-center space-x-2">
+            <i class="fas fa-envelope"></i>
+            <span>info@royalsolar.pk</span>
+          </div>
+        </div>
+        <div class="flex flex-col md:flex-row md:space-x-6">
+          <a href="#" class="hover:text-gray-300"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="hover:text-gray-300"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="hover:text-gray-300"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="hover:text-gray-300"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="hover:text-gray-300"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Navbar -->
+      <div class="container mx-auto flex justify-between items-center px-10">
+        <!-- Dropdown Menu for Mobile -->
+        <div class="md:hidden">
+          <button id="menu-btn" class="flex items-center bg-red-800 px-3 py-2  focus:outline-none">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+          </button>
+          <div id="menu-dropdown" class="hidden flex-col mt-2 bg-red-800 rounded-md text-sm text-center ">
+            
+            <a href="profile.html" class="block px-4 py-2 hover:bg-red-600">Profile</a>
+            <a href="blogs.html" class="block px-4 py-2 hover:bg-red-600">Blogs</a>
+            <a href="commercial.html" class="block px-4 py-2 hover:bg-red-600">Commercial</a>
+            <a href="agriculture.html" class="block px-4 py-2 hover:bg-red-600">Agriculture</a>
+            <a href="residential.html" class="block px-4 py-2 hover:bg-red-600">Residential</a>
+            <a href="calculator.html" class="block px-4 py-2 hover:bg-red-600">Calculator</a>
+            <a href="#" class="block px-4 py-2 hover:bg-red-600">Super Solar Savings</a>
+            <a href="#" class="block px-4 py-2 hover:bg-red-600">Events</a>
+          </div>
+        </div>
+
+        <!-- Links for Larger Screens -->
+        <div class="hidden md:flex space-x-6">
+          
+          <a href="profile.html" class="hover:text-gray-300">Profile</a>
+          <a href="blogs.html" class="hover:text-gray-300">Blogs</a>
+          <a href="commercial.html" class="hover:text-gray-300">Commercial</a>
+          <a href="agriculture.html" class="hover:text-gray-300">Agriculture</a>
+          <a href="residential.html" class="hover:text-gray-300">Residential</a>
+          <a href="calculator.html" class="hover:text-gray-300">Calculator</a>
+          <a href="#" class="hover:text-gray-300">Super Solar Savings</a>
+          <a href="#" class="hover:text-gray-300">Events</a>
+        </div>
+
+        <!-- Get A Quote Button -->
+        <a href="get-a-quote.html" class="hidden md:block bg-white text-red-800 px-4 py-2  text-sm font-large">
+          Get A Quote
+        </a>
+      </div>
+  </nav>
+  <script>
+    // Toggle Dropdown for Mobile Menu
+    const menuBtn = document.getElementById('menu-btn');
+    const menuDropdown = document.getElementById('menu-dropdown');
+    menuBtn.addEventListener('click', () => {
+      menuDropdown.classList.toggle('hidden');
+    });
+  </script>
+  <!-- Navbar 2 -->
+  <div class="bg-white px-10 py-2 ">
+    <!-- Navbar Container -->
+    <div class="container mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <img src="./images/logo.png" class="h-14 w-auto">
+      </div>
+      <!-- Desktop Navigation Links -->
+      <div class="hidden text-base md:flex space-x-10 text-gray-700">
+        <a href="index.html" class="hover:text-red-700">Home</a>
+        <a href="#" class="hover:text-red-700">Franchise Opportunity</a>
+        <a href="#" class="hover:text-red-700">Solar Calculator</a>
+        <a href="#" class="hover:text-red-700">Solar Solution</a>
+        <a href="#" class="hover:text-red-700">Solar Financing</a>
+        <a href="#" class="hover:text-red-700">About Us</a>
+        <a href="#" class="hover:text-red-700">Contact Us</a>
+      </div>
+  
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden">
+        <button id="menu-toggle" class="text-gray-700 focus:outline-none">
+          ☰
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Dropdown -->
+    <div id="mobile-menu" class="hidden bg-red-800 border-t border-gray-300">
+      <a href="index.html" class="block px-4 py-2 hover:bg-gray-100">Home</a>
+      <a href="#" class="block px-4 py-2 hover:bg-gray-100">Franchise Opportunity</a>
+      <a href="#" class="block px-4 py-2 hover:bg-gray-100">Solar Calculator</a>
+      <a href="#" class="block px-4 py-2 hover:bg-gray-100">Solar Solution</a>
+      <a href="#" class="block px-4 py-2 hover:bg-gray-100">Solar Financing</a>
+      <a href="#" class="block px-4 py-2 hover:bg-gray-100">About Us</a>
+      <a href="#" class="block px-4 py-2 hover:bg-gray-100">Contact Us</a>
+    </div>
+  </div>
+  <script>
+    const menuToggle = document.getElementById("menu-toggle");
+const mobileMenu = document.getElementById("mobile-menu");
+
+menuToggle.addEventListener("click", () => {
+  mobileMenu.classList.toggle("hidden");
+});
+  </script>
+
+  <!-- ************* hero section ************* -->
+   <div class="hero w-[100%] overflow-hidden md:w-full h-[70vh] flex place-items-center justify-center">
+    <div class="content text-center">
+      <h1 class="text-[2.5rem] md:text-[3.5rem] font-semibold text-white">Solar Financing</h1>
+      <p class="text-[1.3rem] md:text-[1.8rem] font-medium text-white">Solar Financing Pakistan</p>
+    </div>
+   </div>
+
+
+   <!-- *************** second section ********* -->
+    <div class="w-[82%] mx-auto py-8">
+      <div class="title">
+        <h1 class="text-[1.5rem] md:text-[2.5rem] font-semibold text-slate-800 py-8 orange-border mt-4">Solar Financing Pakistan</h1>
+      </div>
+      <div class="content text-gray-900 font-semibold text-[1.2rem] text-start my-8">
+        <p>State Bank of Pakistan has initiated Solar Financing Pakistan, through Solar Financing Pakistan you can get Rs. 500000/- PKR to PKR Rs. 10 Million PKR. Through Solar Financing in Pakistan we can facilitate our customers to purchase solar energy systems in Pakistan on easy month installments. SBP has issued revised criteria for SBP renewable energy financing in Pakistan in 2016. Through Solar Financing scheme, we can encourage people who are belonging to the industrial, commercial, residential, and agricultural sector to invest in renewable energy sources.</p>
+      </div>
+      <div class="img-sec w-[100%] md:w-[70%] mx-auto">
+        <img class="h-auto md:h-[90vh]" src="./images/second-image.jpg" alt="">
+      </div>
+      <div class="my-3">
+        <h1 class="text-gray-500 font-semibold text-[1.7rem] md:text-[2.5rem]">Scope</h1>
+        <p class="text-gray-900 font-semibold text-[1.1rem]">This program shall allow more people to use renewable energy sources, which will help in attaining a free and uninterrupted supply of electricity. The excess energy which is produced shall be available to other people through Net Metering so it will impact the whole nation.</p>
+        <h1 class="text-[1.3rem] md:text-[1.8rem] font-semibold text-gray-800 my-3">Eligibility Criteria</h1>
+        <p class="text-gray-900 font-semibold text-[1.1rem]">The eligibility criteria to qualify for this program have been kept very simple and easy to cope with the original objective of the program that is to encourage more people to use renewable energy by making it affordable. The eligibility criteria contain only these two requirements:</p>
+        <div class="px-4 md:px-8 text-gray-900 font-semibold text-[1.1rem] mt-3">
+          <p>Must hold a Computerized National Identity Card (CNIC)</p>
+          <p>Must be the owner of the business, and the house where the solar panel system is to be installed</p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- *************** third section ******* -->
+     <div class="w-[90%] mx-auto md:w-[100%] flex flex-col md:flex-row mt-5">
+      <div class="img-sec md:w-[50%]">
+        <img src="./images/third-img.jpg" alt="">
+      </div>
+      <div class="content-sec md:w-[50%] bg-[#991425] pt-8">
+        <h1 class="top-border text-[2.3rem] font-semibold text-white px-10 pt-14">Markup Rate</h1>
+        <p class="font-semibold text-[1.2rem] text-white py-4 md:pt-5 px-10">The markup rate has been set economical to make sure more people can afford it, and become a part of this initiative. The markup rate has been decided 3+3=6 per annum by the SBP. The 3% can further be negotiated depending upon your relationship with your bank.</p>
+      </div>
+     </div>
+
+
+     <!-- *************** fourth section ************ -->
+      <div class="text-center my-10 w-[80%] mx-auto">
+        <h1 class="text-[1.5rem] md:text-[2.5rem] font-semibold bottom-border text-gray-800 pb-6">Solar Financing Banks in Pakistan</h1>
+        <p class="text-[.9rem] font-semibold text-gray-800 py-9">If you cannot afford the solar system by paying right away, you can still afford to switch to solar with the help of the bank. Now the Solar Financing Banks in Pakistan provide monetary assistance under Solar Financing Scheme in Pakistan.</p>
+      <div class="bank-list">
+        <h1 class="text-[1.3rem] md:text-[1.8rem] text-gray-600 font-semibold text-start mb-5">List of Solar Financing Banks in Pakistan</h1>
+        <ul class="flex flex-col md:flex-row gap-4 md:gap-8 py-10">
+          <li class="bg-[#991425] border-[#851120] px-5 py-3 rounded-full font-semibold text-white">JS Bank</li>
+          <li class="bg-[#991425] border-[#851120] px-5 py-3 rounded-full font-semibold text-white">Allied Bank</li>
+          <li class="bg-[#991425] border-[#851120] px-5 py-3 rounded-full font-semibold text-white">Bank of Punjab</li>
+          <li class="bg-[#991425] border-[#851120] px-5 py-3 rounded-full font-semibold text-white">Habib Bank</li>
+          <li class="bg-[#991425] border-[#851120] px-5 py-3 rounded-full font-semibold text-white">Meezan Bank</li>
+          <li class="bg-[#991425] border-[#851120] px-5 py-3 rounded-full font-semibold text-white">Bank of Khyber</li>
+        </ul>
+      </div>
+<!-- **************** JS Bank ********** -->
+      <div class="js-bank text-start text-gray-700">
+        <h1 class="text-[#c53176] text-[1.5rem] md:text-[2rem] font-semibold ">JS Bank</h1>
+        <p class="font-semibold text-[1.1rem] pt-4">JS bank is a well-known bank and a supporter of Green Energy. When SBP launched the solar financing scheme, JS bank initiated two different programs to help people take control of their energy production needs and contribute to a safer environment.</p>
+        <ul class="my-4">
+          <p class="font-semibold text-[1.1rem]">The programs offered by JS Bank are as follows:</p>
+          <li class="font-semibold text-[1.1rem] list-disc list-inside">JS Apna Ghar Solar Financing Program (residential program)</li>
+          <li class="font-semibold text-[1.1rem] list-disc list-inside">JS Smart Roshni Program (commercial program)</li>
+        </ul>
+        <h1 class="text-[1.5rem] md:text-[2rem] font-semibold text-gray-800">Features of the Programs</h1>
+        <p class="font-semibold text-[1.1rem]">Both of the programs launched by JS Bank have the following similar features:</p>
+        <p class="font-semibold text-[1.1rem]">Financing</p>
+        <p class="py-3 font-semibold text-[1.1rem]">Between Rs. 300,000 and Rs. 20 million, depending upon the size of the project.</p>
+        <h1 class="text-[1.5rem] md:text-[2rem] font-semibold text-gray-800">Equity</h1>
+        <p class="font-semibold text-[1.1rem] py-3">Minimum 25% of the total amount</p>
+        <h1 class="text-[1.5rem] md:text-[2rem] font-semibold text-gray-800">Mark-up rate</h1>
+        <p class="font-semibold text-[1.1rem] py-2">6% annually</p>
+        <p class="font-semibold text-[1.1rem] py-2">Financing tenor</p>
+        <p class="font-semibold text-[1.1rem] py-2">Between 3 and 5 years</p>
+        <h1 class="text-[1.5rem] md:text-[2rem] font-semibold text-gray-800">Processing fee</h1>
+        <p class="font-semibold text-[1.1rem] py-3">Minimum PKR 5,000/- or 0.5% of the loan amount (whichever of the two is higher will be taken)</p>
+        <h1 class="text-[1.5rem] md:text-[2rem] font-semibold text-gray-800">Insurance</h1>
+        <p class="font-semibold text-[1.1rem] py-3">Insurance offered through reputable partners at a preferential rate</p>
+        <h1 class="text-[1.5rem] md:text-[2rem] font-semibold text-gray-800">Prerequisites to Get Financing:</h1>
+        <ul class="font-semibold text-[1.1rem] ">
+          <li>• An account at JS Bank either Current or Savings</li>
+          <li>• Fulfillment & signing of the loan application form</li>
+          <li>• Obtain a quotation for a solar panel system from an authorized dealer</li>
+          <li>• Two recent passport size photographs</li>
+          <li>• Copy of CNIC</li>
+          <li>• CF-1 Undertaking Form to be fulfilled</li>
+          <li>• JS Solar Panel Key Fact Sheet of the program you have applied for</li>
+          <li>• Documents showing the ownership of the property along with recent utility bills </li>
+          <li>• Bank statements of a business or individual account</li>
+          <li>• Active tax payee with NTN number (especially for businesses)</li>
+        </ul>
+        
+
+      </div>
+
+      <!-- *************** Bank of Punjab ********** -->
+      <div class="js-bank text-start text-gray-700">
+        <h1 class="text-[1.5rem] md:text-[2rem] font-semibold py-3">Bank of Punjab</h1>
+        <p class="font-semibold text-[1.1rem]">The Bank of Punjab, have started their financial assistance program in compliance with the State Bank of Pakistan solar financing program to help people switch to solar. For this purpose, they are giving financial assistance to people who want to get solar panel systems for their homes. They have named the program BOP Solar Home.</p>
+        <h1 class="text-[1.5rem] md:text-[2rem] font-semibold text-gray-800">Features of the Programs</h1>
+        <p class="font-semibold text-[1.1rem]">Financing</p>
+        <p class="py-3 font-semibold text-[1.1rem]">Up to Rs. 5 million or 50 lac.</p>
+        <h1 class="text-[1.5rem] md:text-[2rem] font-semibold text-gray-800">Equity</h1>
+        <p class="font-semibold text-[1.1rem] py-3">Minimum 20% of the financing amount</p>
+        <h1 class="text-[1.5rem] md:text-[2rem] font-semibold text-gray-800">Mark-up rate</h1>
+        <p class="font-semibold text-[1.1rem] py-2">6% annually</p>
+        <p class="font-semibold text-[1.1rem] py-2">Financing tenor</p>
+        <p class="font-semibold text-[1.1rem] py-2">Up to 7 years</p>
+        <h1 class="text-[1.5rem] md:text-[2rem] font-semibold text-gray-800">Processing fee</h1>
+        <p class="font-semibold text-[1.1rem] py-3">PKR 5,000 for processing</p>
+        <h1 class="text-[1.5rem] md:text-[2rem] font-semibold text-gray-800">Prerequisites to Get Financing:</h1>
+        <ul class="font-semibold text-[1.1rem] ">
+          <li>• Attainment and fulfillment of loan application form</li>
+          <li>• Two recent passport size photographs</li>
+          <li>• Copy of CNIC</li>
+          <li>• Proof of ownership of the property with utility bills</li>
+          <li>• Bank statements of the past six months</li>
+          <li>• Active tax payee with NTN number</li>
+          <li>• Proof of employment or business for the last 03 years in the form of payslips or any transactions made</li>
+          <li>• Copy of professional degree if any</li>
+          <li>• Details of any other loans taken from any other source.</li>
+        </ul>
+        
+
+      </div>
+
+        <!-- *************** Bank of Khyber ********** -->
+        <div class="js-bank text-start text-gray-700">
+          <h1 class="text-[1.5rem] md:text-[2rem] font-semibold py-3 mt-5">Bank of Khyber</h1>
+          <p class="font-semibold text-[1.1rem]">BOK gives financing for domestic customers and is performing their role for a cleaner and greener Pakistan under SBP’s solar financing scheme. Solar Financing scheme from Peshawar a great initiative by The bank of Khyber, and after its success, they expanded the program to provide solar financing at all their branches in Pakistan. The bank offers the program under the name “BOK Roshan Ghar Scheme”.</p>
+          <h1 class="text-[1.5rem] md:text-[2rem] font-semibold text-gray-800">Features of the Programs</h1>
+          <p class="font-semibold text-[1.1rem]">Financing</p>
+          <p class="py-3 font-semibold text-[1.1rem]">From 50,000 to 20 million based on the category of the program under the SBP scheme.</p>
+          <h1 class="text-[1.5rem] md:text-[2rem] font-semibold text-gray-800">Equity</h1>
+          <p class="font-semibold text-[1.1rem] py-3">Minimum 25% of the total financing amount</p>
+          <h1 class="text-[1.5rem] md:text-[2rem] font-semibold text-gray-800">Mark-up rate</h1>
+          <p class="font-semibold text-[1.1rem] py-2">6% annually</p>
+          <p class="font-semibold text-[1.1rem] py-2">Financing tenor</p>
+          <p class="font-semibold text-[1.1rem] py-2">Starting from 6 months up to 5 years</p>
+          <h1 class="text-[1.5rem] md:text-[2rem] font-semibold text-gray-800">Processing fee</h1>
+          <p class="font-semibold text-[1.1rem] py-3">PKR 5,000 and FED</p>
+          <h1 class="text-[1.5rem] md:text-[2rem] font-semibold text-gray-800">Prerequisites to Get Financing:</h1>
+          <ul class="font-semibold text-[1.1rem] ">
+            <li>• Fulfillment of financing application</li>
+            <li>• Two recent passport size photographs</li>
+            <li>• Copy of CNIC</li>
+            <li>• Ownership of property document and the most recent utility bills</li>
+            <li>• Bank statements of the past six months of the personal and business account</li>
+            <li>• Active tax payee with NTN number
+            </li>
+            <li>• Proof of business or employment for the last 03 years</li>
+            <li>• Copy of professional degree if any</li>
+          </ul>
+          
+  
+        </div>
+
+        <!-- **************** Habib Bank Limited********** -->
+      <div class="js-bank text-start text-gray-700">
+        <h1 class="text-[1.5rem] md:text-[2rem] font-semibold py-3 mt-5"> Habib Bank Limited</h1>
+        <p class="font-semibold text-[1.1rem]">HBL is the biggest bank with the vastest network of branches in Pakistan. The bank is providing financial assistance under the State Bank of Pakistan Solar Refinancing Scheme to address the rising energy crises in Pakistan. They are providing financing to mostly industrial clients in the following three categories, which are as follows:</p>
+        <ul class="my-4">
+          <li class="font-semibold text-[1.1rem] list-disc list-inside">Category-I: For industrial projects ranging from 1MW to 50 MW.</li>
+          <li class="font-semibold text-[1.1rem] list-disc list-inside">Category-II: For projects up to 1MW.</li>
+          <li class="font-semibold text-[1.1rem] list-disc list-inside">Category-III: For suppliers certified under the AEDB Certification Regulation 2018 that can install solar or wind projects on a lease basis or for selling of electricity to ultimate owners.</li>
+        </ul>
+        <h1 class="text-[1.5rem] md:text-[2rem] font-semibold text-gray-800">Features of the Programs</h1>
+        <p class="font-semibold text-[1.1rem]">Financing</p>
+        <li class="font-semibold text-[1.1rem] list-disc list-inside">For category-I: PKR 06 billion for a single project.</li>
+        <li class="font-semibold text-[1.1rem] list-disc list-inside">For category-II: PKR 400 million for a single borrower.</li>
+        <li class="font-semibold text-[1.1rem] list-disc list-inside">For category-III: PKR 01 billion for a single supplier.</li>
+       
+        <h1 class="text-[1.5rem] md:text-[2rem] font-semibold text-gray-800">Equity</h1>
+        <p class="font-semibold text-[1.1rem] py-3">Minimum 25% of the total financing amount</p>
+        <h1 class="text-[1.5rem] md:text-[2rem] font-semibold text-gray-800">Mark-up rate</h1>
+        <p class="font-semibold text-[1.1rem] py-2">Only 6% per year</p>
+        <p class="font-semibold text-[1.1rem] py-2">Financing tenor</p>
+        <p class="font-semibold text-[1.1rem] py-2">The financing tenor is different for every category and is as following:</p>
+        <li class="font-semibold text-[1.1rem] list-disc list-inside">Category-I: Maximum 12 years (including 02 years grace period).</li>
+        <li class="font-semibold text-[1.1rem] list-disc list-inside">Category-II: Maximum of ten years (including 03 months grace period).</li>
+        <li class="font-semibold text-[1.1rem] list-disc list-inside">Category-III: Maximum of ten years.</li>
+        <h1 class="text-[1.5rem] md:text-[2rem] font-semibold text-gray-800">Prerequisites to Get Financing:</h1>
+        <ul class="font-semibold text-[1.1rem] ">
+          <li>• Fulfillment and signing of loan financing application</li>
+          <li>• Two recent passport size photographs of the applier</li>
+          <li>• Copy of CNIC</li>
+          <li>• Ownership of Property documents along with the latest utility Bill & Electricity Bill
+          </li>
+          <li>• Bank statements of the past six months of a business or personal account</li>
+          <li>• Active tax payee with NTN number</li>
+          <li>• Details of any loans taken from all other sources</li>
+        </ul>
+        
+
+      </div>
+        <!-- **************** Allied Bank ********** -->
+      <div class="js-bank text-start text-gray-700">
+        <h1 class="text-[1.5rem] md:text-[2rem] font-semibold py-3 mt-5"> Allied Bank</h1>
+        <p class="font-semibold text-[1.1rem]">Allied bank is a well-known bank and a supporter of Green Energy. When SBP launched the solar financing scheme, Allied bank initiated two different programs to help people take control of their energy production needs and contribute to a safer environment.</p>
+       
+        <h1 class="text-[1.5rem] md:text-[2rem] font-semibold text-gray-800">Features of the Programs</h1>
+        <p class="font-semibold text-[1.1rem] mt-2">Both of the programs launched by JS Bank have the following similar features:</p>
+        <p class="font-semibold text-[1.1rem]">Financing</p>
+        <p class="font-semibold text-[1.1rem] mt-2">Amount of Facility Small Enterprise (SE): Maximum Up to Rs. 25.00 Million*</p>
+        <p class="font-semibold text-[1.1rem]">Medium Enterprise (ME): Maximum up to Rs. 200.00 Million*</p>
+       
+        <h1 class="text-[1.5rem] md:text-[2rem] font-semibold text-gray-800">Equity</h1>
+        <p class="font-semibold text-[1.1rem] py-3">Minimum 25% of the total amount</p>
+        <h1 class="text-[1.5rem] md:text-[2rem] font-semibold text-gray-800">Mark-up rate</h1>
+        <p class="font-semibold text-[1.1rem] py-2">6% Quarterly</p>
+        <p class="font-semibold text-[1.1rem] py-2">Financing tenor</p>
+        <p class="font-semibold text-[1.1rem] py-2">Between 3 and 10 years</p>
+        <h1 class="text-[1.5rem] md:text-[2rem] font-semibold text-gray-800">Processing fee</h1>
+        <p class="font-semibold text-[1.1rem] py-3">Minimum PKR 5,000/- or 0.5% of the loan amount (whichever of the two is higher will be taken)</p>
+        <h1 class="text-[1.5rem] md:text-[2rem] font-semibold text-gray-800">Insurance</h1>
+        <p class="font-semibold text-[1.1rem] py-3">Insurance offered through reputable partners at a preferential rate</p>
+        
+        <h1 class="text-[1.5rem] md:text-[2rem] font-semibold text-gray-800">Prerequisites to Get Financing:</h1>
+        <ul class="font-semibold text-[1.1rem] ">
+          <li>• An account at Allied Bank either Current or Savings</li>
+          <li>• Fulfillment & signing of the loan application form</li>
+          <li>• Obtain a quotation for a solar panel system from an authorized dealer</li>
+          <li>• Two recent passport size photographs
+          </li>
+          <li>• Copy of CNIC</li>
+          <li>• CF-1 Undertaking Form to be fulfilled</li>
+          <li>• JS Solar Panel Key Fact Sheet of the program you have applied for</li>
+          <li>• Documents showing the ownership of the property along with recent utility bills</li>
+          <li>• Bank statements of a business or individual account</li>
+          <li>• Active tax payee with NTN number (especially for businesses)</li>
+          <li class="mt-2">SBP Re-Financing Facility for Storage of Agricultural produce</li>
+          <li>Salient Features Financing is available for Establishment/Expansion/BMR of Silos, Warehouses & Cold Storages facilities for storing Agricultural produce.</li>
+          <li>Financing is availble for local purchase/import of new plant & machinery/new generators used in Silos, Warehouses & Cold Storages. Further, up to 65% cost of civil works is also eligible under the scheme.</li>
+          <li>Financing is available to the extent of C&F Value/ex-factory/showroom price of plant, machinery, generators etc.</li>
+          <li>Maximum financing to a single project Rs. 500.00 Million</li>
+          <li class="mt-3">*Designated Branches All ABL branches.</li>
+          <li>*Entire Financing shall be subject to adherence of all rules & regulation issued by SBP from time to time and subject to compliance with all rules & regulations including SBP Prudential Regulations.</li>
+        </ul>        
+
+      </div>
+
+          <!-- **************** Meezan Bank********** -->
+          <div class="js-bank text-start text-gray-700">
+            <h1 class="text-[1.5rem] md:text-[2rem] font-semibold py-3 mt-5"> Meezan Bank</h1>
+            <p class="font-semibold text-[1.1rem]">Meezan Bank is a well-known bank and a supporter of Green Energy. When SBP launched the solar financing scheme, Meezan Bank initiated programs to help people take control of their energy production needs and contribute to a safer environment.</p>
+            <p class="font-semibold text-[1.1rem] mt-2">Meezan Bank, Pakistan’s leading Islamic bank and Burj Solar Energy Private Limited (BSEPL) are pleased to announce the financial close of PKR 1 billion syndicated Islamic finance facility for BSEPL’s portfolio of renewable distributed power generation in Pakistan. The first tranche of PKR 580 million will be used to finance the construction of a 7 MW solar power plant for Power Cement Limited on Karachi Hyderabad Motorway.</p>           
+            <h1 class="text-[1.5rem] md:text-[2rem] font-semibold text-gray-800">Features of the Programs</h1>
+            <p class="font-semibold text-[1.1rem]">this program is launched by Meezan Bank have the following similar features:</p>
+            <p class="font-semibold text-[1.1rem]">Financing</p>
+            <p class="font-semibold text-[1.1rem] mt-2">Between Rs. 300,000 and Rs. 20 million, depending upon the size of the project.</p>
+           
+            <h1 class="text-[1.5rem] md:text-[2rem] font-semibold text-gray-800">Equity</h1>
+            <p class="font-semibold text-[1.1rem] py-3">Minimum 25% of the total amount</p>
+            <h1 class="text-[1.5rem] md:text-[2rem] font-semibold text-gray-800">Mark-up rate</h1>
+            <p class="font-semibold text-[1.1rem] py-2">6% quarterly/annually</p>
+            <p class="font-semibold text-[1.1rem] py-2">Financing tenor</p>
+            <p class="font-semibold text-[1.1rem] py-2">Between 3 and 10 years</p>
+            <h1 class="text-[1.5rem] md:text-[2rem] font-semibold text-gray-800">Processing fee</h1>
+            <p class="font-semibold text-[1.1rem] py-2">Minimum PKR 5,000/- or 0.5% of the loan amount (whichever of the two is higher will be taken)</p>
+            <h1 class="text-[1.5rem] md:text-[2rem] font-semibold text-gray-800">Insurance</h1>
+            <p class="font-semibold text-[1.1rem] py-2">Insurance offered through reputable partners at a preferential rate</p>
+           
+            <h1 class="text-[1.5rem] md:text-[2rem] font-semibold text-gray-800">Prerequisites to Get Financing:</h1>
+            <ul class="font-semibold text-[1.1rem] ">
+              <li>• An account at Meezan Bank either Current or Savings</li>
+              <li>• Fulfillment & signing of the loan application form</li>
+              <li>• Obtain a quotation for a solar panel system from an authorized dealer</li>
+              <li>• Two recent passport size photographs</li>
+              <li>• Copy of CNIC</li>
+              <li>• CF-1 Undertaking Form to be fulfilled</li>
+              <li>• JS Solar Panel Key Fact Sheet of the program you have applied for</li>
+              <li>• Documents showing the ownership of the property along with recent utility bills</li>
+              <li>• Bank statements of a business or individual account</li>
+              <li>• Active tax payee with NTN number (especially for businesses).</li>
+            </ul>            
+    
+          </div>
+
+      </div>
+
+      <!-- **************** fifth section ********** -->
+       <div class="w-full bg-[#F7F7F7]">
+        <div class="first-para text-center py-14">
+          <h1 class="text-[1.2rem] md:text-[1.5rem] font-semibold">Loan for Solar System in Pakistan</h1>
+          <p class="font-normal text-[1.08rem] py-4">Loan for Solar System in Pakistan.</p>
+        </div>
+        <div class="sec-para w-[80%] mx-auto">
+          <h1 class="text-[1.2rem] md:text-[1.5rem] font-semibold">Solar System on Installments in Lahore, Peshawar and Allover Pakistan</h1>
+          <p class="font-normal text-[1.08rem] py-4">We encourage the people of Pakistan to install Solar systems on Installments in Pakistan because the benefits of going solar outweigh the monthly installments as you can have lifetime savings for a financing period of around 5-7 years.</p>
+        </div>
+        <div class="third-para w-[80%] mx-auto">
+          <h1 class="text-[1.2rem] md:text-[1.5rem] font-semibold">Which Capacity Makes the Best Solar System For Home in Pakistan?</h1>
+          <p class="font-normal text-[1.08rem] py-5">The solar energy systems are available in several capacities irrespective of the system type you are installing. The required capacity of the system depends upon the electricity usage of the consumer. If the electricity usage is higher, the system capacity will be greater as well. The table below will help you find the right capacity for your electricity utilization.</p>
+        </div>
+        <div class="w-full bg-white">
+        <div class="w-[80%] mx-auto md:w-[75%] bg-gray-50">
+          <table class="w-[100%]">
+            <thead class="bg-gray-800 text-white">
+              <tr>
+                <th class="text-[1.1rem] md:text-[1.5rem] pl-8 py-6 text-left">MONTHLY ELECTRICITY UNITS</th>
+                <th class="text-[1.1rem] md:text-[1.5rem] pl-8 py-6 text-left">SYSTEM CAPACITY</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b-2 border-gray-300">
+                <td class="font-semibold text-[1.07rem] px-4 py-4 text-center pt-8">300-350</td>
+                <td class="font-semibold text-[1.07rem] px-4 py-4 text-center pt-8">3KW Solar System in Pakistan</td>
+              </tr>
+              <tr class="border-b-2 border-gray-300">
+                <td class="font-semibold text-[1.07rem] px-4 py-4 text-center">500-600</td>
+                <td class="font-semibold text-[1.07rem] px-4 py-4 text-center">5KW Solar System in Pakistan</td>
+              </tr>
+              <tr class="border-b-2 border-gray-300">
+                <td class="font-semibold text-[1.07rem] px-4 py-4 text-center">1100-1200</td>
+                <td class="font-semibold text-[1.07rem] px-4 py-4 text-center">10KW Solar System in Pakistan</td>
+              </tr>
+              <tr class="border-b-2 border-gray-300">
+                <td class="font-semibold text-[1.07rem] px-4 py-4 text-center">1700-1800</td>
+                <td class="font-semibold text-[1.07rem] px-4 py-4 text-center">15KW Solar System in Pakistan</td>
+              </tr>
+              <tr class="border-b-2 border-gray-300">
+                <td class="font-semibold text-[1.07rem] px-4 py-4 text-center">2300-2400</td>
+                <td class="font-semibold text-[1.07rem] px-4 py-4 text-center">2300-2400</td>
+              </tr>
+              <tr class="border-b-2 border-gray-300">
+                <td class="font-semibold text-[1.07rem] px-4 py-4 text-center">2800-3000</td>
+                <td class="font-semibold text-[1.07rem] px-4 py-4 text-center">2800-3000</td>
+              </tr>
+              <tr class="border-b-2 border-gray-300">
+                <td class="font-semibold text-[1.07rem] px-4 py-4 text-center">3500-3600</td>
+                <td class="font-semibold text-[1.07rem] px-4 py-4 text-center">3500-3600
+                </td>
+              </tr>
+              <tr class="border-b-2 border-gray-300">
+                <td class="font-semibold text-[1.07rem] px-4 py-4 text-center">4000-4200</td>
+                <td class="font-semibold text-[1.07rem] px-4 py-4 text-center">4000-4200</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+       </div>
+
+
+<!-- *****Footer section **** -->
+<div class="w-[100%] h-auto md:h-[60vh] bg-black flex justify-center items-center">
+    <!-- Left Section -->
+     <div class="w-[90%] mx-auto bg-black text-white px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-2">
+    <div class="flex flex-col items-center md:items-start space-y-2">
+      <div class="flex items-center">
+        <img src="./images/logo.png" class="h-14 w-auto">
+      </div>
+      <div class="flex items-center space-x-2">
+        <a href="#" class="bg-blue-600 text-white rounded-md px-3 py-1">
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a href="#" class="bg-blue-500 text-white rounded-md px-3 py-1">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="#" class="bg-cyan-500 text-white rounded-md px-3 py-1">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" class="bg-red-600 text-white rounded-md px-3 py-1">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
+    </div>
+  
+    <!-- Center Section-->
+    <div class="text-center md:text-left space-y-2 py-5">
+      <h3 class="text-3xl font-bold text-red-500">Contact Us!</h3>
+      <p class="flex items-center space-x-2">
+        <i class="fas fa-map-marker-alt text-red-500"></i>
+        <span class="text-lg">HO, Office No. 888/9 E, Bosan Rd, Near PTCL Exchange, <br> Al Atta Colony, Multan</span>
+      </p>
+      <p class="flex items-center space-x-2">
+        <i class="fas fa-map-marker-alt text-red-500"></i>
+        <span class="text-lg">Office, Street 169, G13/3, Islamabad</span>
+      </p>
+      <p class="flex items-center space-x-2">
+        <i class="fas fa-phone-alt text-red-500"></i>
+        <span class="text-lg">+92 306 8671511 | +92310 4400999</span>
+      </p>
+      <p class="flex items-center space-x-2">
+        <i class="fas fa-envelope text-red-500"></i>
+        <span class="text-lg">info@royalsolar.pk</span>
+      </p>
+    </div>
+  
+    <!-- Right Section -->
+    <div class="text-center md:text-left w-[100%] md:w-[35%]">
+      <h3 class="text-2xl py-2 font-bold text-red-500">Map</h3>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31637.32370896282!2d71.45296151562498!3d30.195767399999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3917bb3c34e6668b%3A0xa5ef2c52b8b6e9ed!2sMultan!5e0!3m2!1sen!2s!4v1692884992331!5m2!1sen!2s"
+        class="w-full h-52 rounded-md"
+        allowfullscreen=""
+        loading="lazy"
+      ></iframe>
+    </div>
+  
+    <!-- Footer Bottom -->
+   
+  </div>
+  </div>
+  <div class="bg-red-700 w-[100%] text-sm text-white">
+    <div class="flex justify-between w-[80%] mx-auto py-3 gap-2">
+    <span class="text-lg font-bold">Royal Solar Energy © 2024</span>
+    <span class="text-lg font-bold">Powered by <span class="font-bold">letvirtuallygrow</span></span>
+  </div>
+  </div>
+  
+  <!-- footer end  -->
+</body>
+</html>
